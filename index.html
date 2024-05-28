@@ -6,67 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deds dashboard</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="pickaxe.png" type="image/png">
   </head>
   <body>
     <section id="content">
-  
       <div class="content">
-          <div class="content-header"> 
-              <h1>DEDS Dashboard</h1>
-    
+        <div class="content-header"> 
+          <h1>DEDS Dashboard</h1>
+        </div>
+        <div class="widget-box sample-widget">
+          <div class="widget-header">
+            <h2>Aantal orders</h2>
+            <select id="viewSelect">
+              <option value="year">Jaar</option>
+              <option value="month">Maand</option>
+            </select>
+            <i class="fa fa-cog"></i>
           </div>
-          <div class="widget-box sample-widget">
-              <div class="widget-header">
-                  <h2>Aantal orders</h2>
-                  <select id="viewSelect">
-                    <option value="year">Jaar</option>
-                    <option value="month">Maand</option>
-                  </select>
-                  </select>
-                  <i class="fa fa-cog"></i>
-              </div>
-              <div class="widget-content">
-                <canvas id="ordersChart"></canvas>
-              </div>
+          <div class="widget-content">
+            <canvas id="ordersChart"></canvas>
           </div>
-          
-          <div class="widget-box sample-widget">
-              <div class="widget-header">
-                  <h2>Totale omzet</h2>
-                  <select id="viewSelectOmzet">
-                    <option value="year">Jaar</option>
-                    <option value="month">Maand</option>
-                </select>
-                  <i class="fa fa-cog"></i>
-              </div>
-              <div class="widget-content">
-                <canvas id="omzetpjaar"></canvas>
-              </div>
+        </div>
+        
+        <div class="widget-box sample-widget">
+          <div class="widget-header">
+            <h2>Totale omzet</h2>
+            <select id="viewSelectOmzet">
+              <option value="year">Jaar</option>
+              <option value="month">Maand</option>
+            </select>
+            <i class="fa fa-cog"></i>
           </div>
-          <div class="widget-box sample-widget">
-              <div class="widget-header">
-                  <h2>Widget Header</h2>
-                  <i class="fa fa-cog"></i>
-              </div>
-              <div class="widget-content">
-                  <img
-                      
-                  />
-              </div>
+          <div class="widget-content">
+            <canvas id="omzetpjaar"></canvas>
           </div>
-          <div class="widget-box sample-widget">
-              <div class="widget-header">
-                  <h2>Widget Header</h2>
-                  <i class="fa fa-cog"></i>
-              </div>
-              <div class="widget-content">
-                  <img
-                      
-                  />
-              </div>
+        </div>
+        
+        <div class="widget-box sample-widget">
+          <div class="widget-header">
+            <h2>Aantal transacties vs Tijd</h2>
+            <select id="viewSelectTransactions">
+              <option value="year">Jaar</option>
+              <option value="month">Maand</option>
+            </select>
+            <i class="fa fa-cog"></i>
           </div>
+          <div class="widget-content">
+            <canvas id="transactionsChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- <div class="widget-box sample-widget">
+          <div class="widget-header">
+            <h2>Widget Header</h2>
+            <i class="fa fa-cog"></i>
+          </div>
+          <div class="widget-content">
+            <img />
+          </div>
+        </div> -->
+        
+        <!-- <div class="widget-box sample-widget">
+          <div class="widget-header">
+            <h2>Widget Header</h2>
+            <i class="fa fa-cog"></i>
+          </div>
+          <div class="widget-content">
+            <img />
+          </div>
+        </div> -->
       </div>
-  </section>
-  <script type="module" src="/main.js"></script>
+    </section>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
