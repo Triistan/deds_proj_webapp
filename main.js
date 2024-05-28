@@ -1,6 +1,8 @@
 import './style.css'
 import { fetchDataOrder, fetchDataOmzet, countOrdersPerYear, calculateRevenuePerYear } from './data.js';
 
+//Standaard main js bestand waar alles samen komt
+
 let orderData;
 let omzetData;
 

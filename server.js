@@ -1,10 +1,12 @@
 import express from 'express';
 import sql from 'mssql';
-import cors from 'cors'; // import cors module
+import cors from 'cors'; 
 const app = express();
 const port = 3000;
 import { config } from 'dotenv';
 config();
+
+//Node JS back-end bestand
 
 const dbconfig = {
     user: process.env.DB_USERNAME,
@@ -13,9 +15,9 @@ const dbconfig = {
     database: process.env.DB_NAME,
 };
 
-app.use(cors()); // use cors middleware
+app.use(cors()); 
 app.use(cors({
-    origin: 'http://localhost:5173' // replace with your client's origin
+    origin: 'http://localhost:5173' 
   }));
 
 app.get('/orderDate', async (req, res) => {
