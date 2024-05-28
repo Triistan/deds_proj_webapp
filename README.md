@@ -21,3 +21,5 @@ run "node server.js"
 
 run "npm run dev"
 
+## Je moet mij ook even vraag voor de .env file met db login :)
+
