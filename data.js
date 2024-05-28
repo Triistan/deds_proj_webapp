@@ -1,4 +1,4 @@
-import { updateOrdersChart, updateOmzetChart } from './chart.js';
+import { updateOrdersChart, updateOmzetChart, updateTransactionsChart } from './chart.js';
 
 //Hier staat code voor het fetchen en bewerken van de data uit de db
 
@@ -53,13 +53,37 @@ function calculateRevenuePerYear(data, view) {
   updateOmzetChart(revenue);
 }
 
+function countTransactions(data, view) {
+  const counts = {};
+  for (const item of data) {
+    const date = new Date(item.TransactionDate);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const yearMonthKey = `${year}-${month}`;
+    if (view === 'year') {
+      if (counts[year]) {
+        counts[year]++;
+      } else {
+        counts[year] = 1;
+      }
+    } else if (view === 'month') {
+      if (counts[yearMonthKey]) {
+        counts[yearMonthKey]++;
+      } else {
+        counts[yearMonthKey] = 1;
+      }
+    }
+  }
+  updateTransactionsChart(counts);
+}
+
 async function fetchDataOrder() {
   try {
-      const response = await fetch('http://localhost:3000/orderDate');
-      const data = await response.json();
-      return data;
+    const response = await fetch('http://localhost:3000/orderDate');
+    const data = await response.json();
+    return data;
   } catch (error) {
-      console.error('Failed to fetch data:', error);
+    console.error('Failed to fetch data:', error);
   }
 }
 
@@ -73,4 +97,4 @@ async function fetchDataOmzet() {
   }
 }
 
-export { fetchDataOrder, fetchDataOmzet, countOrdersPerYear, calculateRevenuePerYear };
+export { fetchDataOrder, fetchDataOmzet, countOrdersPerYear, calculateRevenuePerYear, countTransactions };
