@@ -1,4 +1,4 @@
-import { updateChart, updateChart2 } from './chart.js';
+import { updateOrdersChart, updateOmzetChart } from './chart.js';
 
 //Hier staat code voor het fetchen en bewerken van de data uit de db
 
@@ -23,7 +23,7 @@ function countOrdersPerYear(data, view) {
       }
     }
   }
-  updateChart(counts);
+  updateOrdersChart(counts);
 }
 
 function calculateRevenuePerYear(data, view) {
@@ -50,7 +50,7 @@ function calculateRevenuePerYear(data, view) {
       }
     }
   }
-  updateChart2(revenue);
+  updateOmzetChart(revenue);
 }
 
 async function fetchDataOrder() {

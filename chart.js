@@ -5,8 +5,8 @@ import Chart from 'chart.js/auto';
 let myChart1 = null;
 let myChart2 = null;
 
-function updateChart(counts) {
-  const ctx = document.getElementById('myChart').getContext('2d');
+function updateOrdersChart(counts) {
+  const ctx = document.getElementById('ordersChart').getContext('2d');
   if (myChart1) {
     myChart1.destroy();
   }
@@ -25,7 +25,7 @@ function updateChart(counts) {
   });
 }
 
-function updateChart2(counts) {
+function updateOmzetChart(counts) {
   const ctx = document.getElementById('omzetpjaar').getContext('2d');
   if (myChart2) {
     myChart2.destroy(); 
@@ -45,4 +45,4 @@ function updateChart2(counts) {
   });
 }
 
-export { updateChart, updateChart2 };
+export { updateOrdersChart, updateOmzetChart };
