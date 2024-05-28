@@ -1,7 +1,7 @@
 import { updateOrdersChart, updateOmzetChart, updateTransactionsChart } from './chart.js';
 
 //Hier staat code voor het fetchen en bewerken van de data uit de db
-
+  
 function countOrdersPerYear(data, view) {
   const counts = {};
   for (const item of data) {
