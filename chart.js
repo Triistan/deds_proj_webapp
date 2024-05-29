@@ -84,7 +84,7 @@ function updateCountryChart(counts) {
     data: {
       labels: Object.keys(counts),
       datasets: [{
-        label: 'Orders per year',
+        label: 'Klanten per land',
         backgroundColor: ["#0074D9", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE", "#3D9970", "#111111", "#AAAAAA"],
         borderColor: '#000000',
         data: Object.values(counts)
