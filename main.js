@@ -1,19 +1,22 @@
 import './style.css';
 import 'chartjs-adapter-date-fns';
-import { fetchDataOrder, fetchDataOmzet, countOrdersPerYear, calculateRevenuePerYear, countTransactions } from './data.js';
+import { fetchDataOrder, fetchDataOmzet,fetchDataCountry, countOrdersPerYear, calculateRevenuePerYear, countTransactions, countCountries } from './data.js';
 
 //Standaard main js bestand waar alles samen komt
 
 let orderData;
 let omzetData;
+let countryData;
 
 document.addEventListener("DOMContentLoaded", async function() {
   orderData = await fetchDataOrder();
   omzetData = await fetchDataOmzet();
+  countryData = await fetchDataCountry();
 
   countOrdersPerYear(orderData, 'year');
   calculateRevenuePerYear(omzetData, 'year');
   countTransactions(omzetData, 'year');
+  countCountries(countryData)
 });
 
 document.getElementById('viewSelect').addEventListener('change', async function() {

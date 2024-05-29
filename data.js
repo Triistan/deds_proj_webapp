@@ -1,4 +1,4 @@
-import { updateOrdersChart, updateOmzetChart, updateTransactionsChart } from './chart.js';
+import { updateOrdersChart, updateOmzetChart, updateTransactionsChart, updateCountryChart} from './chart.js';
 
 //Hier staat code voor het fetchen en bewerken van de data uit de db
   
@@ -77,6 +77,18 @@ function countTransactions(data, view) {
   updateTransactionsChart(counts);
 }
 
+async function countCountries(data) {
+  try {
+    const count = data.reduce((acc, curr) => {
+      acc[curr.Country] = (acc[curr.Country] || 0) + 1;
+      return acc;
+    }, {});
+    updateCountryChart(count);
+  } catch (error) {
+    console.error('Failed to count countries:', error);
+  }
+}
+
 async function fetchDataOrder() {
   try {
     const response = await fetch('http://localhost:3000/orderDate');
@@ -97,4 +109,14 @@ async function fetchDataOmzet() {
   }
 }
 
-export { fetchDataOrder, fetchDataOmzet, countOrdersPerYear, calculateRevenuePerYear, countTransactions };
+async function fetchDataCountry() {
+  try {
+    const response = await fetch('http://localhost:3000/country');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+  }
+}
+
+export { fetchDataOrder, fetchDataOmzet, fetchDataCountry, countOrdersPerYear, calculateRevenuePerYear, countTransactions, countCountries };
